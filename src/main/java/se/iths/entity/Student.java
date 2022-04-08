@@ -26,8 +26,6 @@ public class Student {
     private String firstname;
     @NotEmpty()
     private String lastname;
-
-
     private String phoneNumber;
 
 
