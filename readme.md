@@ -52,6 +52,7 @@ get teachers:
 ----------------------------------------
 find teacher by id:
 **GET http://localhost:8080/student-management-system/api/v1/teachers/findbyid/{id}**
+
 ---------------------------------------
 Delete teacher:
 **DELETE http://localhost:8080/student-management-system/api/v1/teachers/{id}**
