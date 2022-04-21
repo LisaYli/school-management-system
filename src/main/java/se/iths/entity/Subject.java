@@ -27,17 +27,11 @@ public class Subject  {
     @JsonBackReference
     private List<Student> students = new ArrayList<>();
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    private List<Teacher> teachers;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Teacher teacher;
 
     public void addStudent(Student student) {
         students.add(student);
     }
 
-    public void addTeacher(Teacher teacher) {
-        if(teachers == null){
-            teachers = new ArrayList<>();
-        }
-        teachers.add(teacher);
-    }
 }

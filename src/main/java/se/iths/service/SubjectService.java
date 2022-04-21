@@ -46,7 +46,8 @@ public class SubjectService implements SubjectRepository {
 
     public void addTeacher(Teacher teacherToFind, Long subjectId) {
         Subject found = entityManager.find(Subject.class, subjectId);
-        found.addTeacher(teacherToFind);
+        found.setTeacher(teacherToFind);
+        teacherToFind.addSubject(found);
         entityManager.merge(found);
     }
 }

@@ -73,6 +73,7 @@ public class SubjectRest {
     @PATCH
     public Response addTeacher(@PathParam("subjectId") Long subjectId, @PathParam("teacherId") Long teacherId) {
         Teacher teacherToFind = teacherService.findTeacherById(teacherId);
+
         subjectService.addTeacher(teacherToFind, subjectId);
 
         return Response.ok().build();

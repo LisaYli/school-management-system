@@ -22,7 +22,11 @@ public class Teacher {
 
     private String name;
 
-    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER, orphanRemoval = true)
     private List<Subject> subjects = new ArrayList<>();
+
+    public void addSubject(Subject subject) {
+        subjects.add(subject);
+    }
 
 }
