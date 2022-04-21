@@ -50,7 +50,7 @@ public class StudentRest {
     @GET
     public Response findStudentById(@PathParam("id") Long id) {
         Student studentToFind = studentService.findStudentById(id);
-        StudentValidation.checkIfStudentExist(id, studentToFind);
+        StudentValidation.checkIfStudentExist(studentToFind);
         return Response.ok(studentToFind).build();
     }
 

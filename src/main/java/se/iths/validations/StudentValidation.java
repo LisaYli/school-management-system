@@ -16,9 +16,9 @@ public abstract class StudentValidation {
         }
     }
 
-    public static void checkIfStudentExist(Long id, Student studentToFind) {
+    public static void checkIfStudentExist(Student studentToFind) {
         if (studentToFind == null) {
-            throw new StudentException("Student with ID: " + id + " do not exist, please try another one!");
+            throw new StudentException("Student does not exist.. please try another one :)");
         }
     }
 

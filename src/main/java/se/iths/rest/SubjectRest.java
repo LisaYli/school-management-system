@@ -3,9 +3,12 @@ package se.iths.rest;
 import se.iths.entity.Student;
 import se.iths.entity.Subject;
 import se.iths.entity.Teacher;
+import se.iths.exceptions.SchoolAppException;
 import se.iths.service.StudentService;
 import se.iths.service.SubjectService;
 import se.iths.service.TeacherService;
+import se.iths.validations.ApplicationValidation;
+import se.iths.validations.StudentValidation;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -64,6 +67,9 @@ public class SubjectRest {
     @PATCH
     public Response addStudent(@PathParam("subjectId") Long subjectId, @PathParam("studentId") Long studentId) {
         Student studentToFind = studentService.findStudentById(studentId);
+
+        StudentValidation.checkIfStudentExist(studentToFind);
+
         subjectService.addStudent(studentToFind, subjectId);
 
         return Response.ok().build();
@@ -73,9 +79,12 @@ public class SubjectRest {
     @PATCH
     public Response addTeacher(@PathParam("subjectId") Long subjectId, @PathParam("teacherId") Long teacherId) {
         Teacher teacherToFind = teacherService.findTeacherById(teacherId);
-
+       ApplicationValidation.checkIfTeacherExist(teacherToFind);
         subjectService.addTeacher(teacherToFind, subjectId);
 
         return Response.ok().build();
     }
-}
+
+
+    }
+
