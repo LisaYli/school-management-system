@@ -2,6 +2,7 @@ package se.iths.service;
 
 
 import se.iths.entity.Student;
+import se.iths.entity.Subject;
 import se.iths.repositories.StudentRepository;
 
 import javax.persistence.EntityManager;
@@ -12,7 +13,7 @@ import java.util.List;
 @Transactional
 public class StudentService implements StudentRepository {
 
-    @PersistenceContext
+    @PersistenceContext(unitName = "MyPU")
     EntityManager entityManager;
 
 
@@ -55,6 +56,7 @@ public class StudentService implements StudentRepository {
         studentToFind.setFirstname(firstname);
         return studentToFind;
     }
+
     public Student updateStudentLastname(Long id, String lastname) {
         Student studentToFind = entityManager.find(Student.class, id);
         studentToFind.setLastname(lastname);
@@ -67,5 +69,9 @@ public class StudentService implements StudentRepository {
         studentToFind.setEmail(email);
         return studentToFind;
     }
+
+
+
 }
+
 

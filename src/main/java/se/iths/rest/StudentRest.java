@@ -63,7 +63,6 @@ public class StudentRest {
     }
 
 
-
     @Path("firstname/{id}")
     @PATCH
     public Response updateStudentFirstname(@PathParam("id") Long id, Student student) {
@@ -77,6 +76,7 @@ public class StudentRest {
         var studentToUpdate = studentService.updateStudentLastname(id, student.getLastname());
         return Response.ok(studentToUpdate).build();
     }
+
     @Path("email/{id}")
     @PATCH
     public Response updateStudentEmail(@PathParam("id") Long id, Student student) {

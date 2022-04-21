@@ -12,7 +12,6 @@ public interface StudentRepository{
 
     void createStudent(Student student);
 
-
     void deleteStudent(Long id);
 
 
